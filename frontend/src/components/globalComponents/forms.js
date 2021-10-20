@@ -1,7 +1,7 @@
 import {useContext} from "react"
 import {GlobalContext} from "../../logic/globalState"
 
-const InputNormal = () => {
+const InputNormal = props => {
 
     const { tema } = useContext(GlobalContext);
 
@@ -11,7 +11,7 @@ const InputNormal = () => {
     }
     
     return (
-        <input type="text" className="input-text" style={st}/>
+        <input type={props.type || "text"} className="input-text" style={st}/>
     )
 }
 
@@ -26,8 +26,13 @@ const BotonEnvio = props => {
     )
 }
 
-const InputCifrado = () => <h1>yay</h1>
+const InputContraseña = () => {
+
+    return (
+        <InputNormal type="password" />
+    )
+}
 
 
 
-export { InputNormal, BotonEnvio, InputCifrado };
+export { InputNormal, BotonEnvio, InputContraseña};

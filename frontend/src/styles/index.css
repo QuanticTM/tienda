@@ -38,8 +38,7 @@ body *{
 .main-container{
     border-radius: 4px;
     width:700px;
-    padding: 2% 0px;
-    max-width: 90%;
+    max-width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,17 +47,19 @@ body *{
 
 .main-container form{
     width: 100%;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 30px 0px ;
+    margin: 30px 30px ;
 }
 
 .interior{
-    max-width: 95%;
-    width: 99%;
+    padding-top: 20px;
+    max-width: 93%;
     border: 1px solid black;
+    margin: 20px 30px ;
 }
 
 @media screen and (max-width: 600px) {
