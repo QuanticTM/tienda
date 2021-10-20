@@ -5,11 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body *{
+    transition: 0.3s;
+
 }
 
 .options-wrapper{
@@ -53,4 +59,14 @@ code {
     max-width: 95%;
     width: 99%;
     border: 1px solid black;
+}
+
+@media screen and (max-width: 600px) {
+    .options-wrapper {
+        width: 70%;
+        height: 430px;
+        margin: 0 auto;
+        left: 15%;
+        border-radius: 8px;
+    }
 }

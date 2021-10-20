@@ -8,7 +8,17 @@ const Login = () => {
         <MainContainer>
             <h2>Login is here </h2>
             <form onSubmit="" >
+               
+                <p>Nombre Completo</p>
                 <InputNormal /> 
+                
+                <p>Correo</p>
+                <InputNormal /> 
+
+                <p>Contraseña</p> 
+                <InputNormal /> 
+
+                <BotonEnvio> Registrate </BotonEnvio> 
             </form>
         </MainContainer>
     )

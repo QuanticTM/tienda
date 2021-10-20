@@ -6,8 +6,8 @@ const InputNormal = () => {
     const { tema } = useContext(GlobalContext);
 
     const st = {
-        backgroundColor: tema.principal,
-        color: tema.letraSecundario
+        backgroundColor: tema.secundario,
+        color: tema.letraSecundaria
     }
     
     return (
@@ -16,9 +16,13 @@ const InputNormal = () => {
 }
 
 const BotonEnvio = props => {
-   
+
+    const { chosenColor } = useContext(GlobalContext);
+
+    const st = {backgroundColor: chosenColor};
+
     return (
-        <button>{props.children}</button>
+        <button className="post-bottom" style={st} >{props.children}</button>
     )
 }
 

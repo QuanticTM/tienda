@@ -21,8 +21,8 @@ export const GlobalState = props => {
             letraSecundaria: "#333",
         },
         modoOscuro: {
-            principal: "#232124",
-            secundario: "#100f12",
+            principal: "#15151b",
+            secundario: "#20202c",
             letraPrincipal: "#eee",
             letraSecundaria: "#fff",
         }
