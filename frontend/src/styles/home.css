@@ -1,0 +1,22 @@
+.home-back{
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.home-options{
+    background-color: rgba(2,2,2, 0.3); 
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    color: #fef;
+}
+.home-options a{
+    color: #fef;
+    text-decoration: none;
+
+}
