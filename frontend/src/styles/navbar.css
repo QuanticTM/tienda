@@ -1,0 +1,10 @@
+.navbar-main{
+    position: fixed;
+    top: 0px;
+    height: 53px;
+    width: 100%;
+    z-index: 3;
+    background-color: #1f1;
+}
+
+
