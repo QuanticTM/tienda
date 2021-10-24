@@ -1,11 +1,12 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./components/navbar/navMain";
 
 // pages 
 
 import Home from "./components/pages/home";
 import Login from "./components/pages/login";
 import Register from "./components/pages/register";
-import Navbar from "./components/navbar/navMain";
+import CrearProductos from "./components/pages/crearProductos";
 
 const App = () => {
     return (
@@ -24,6 +25,11 @@ const App = () => {
                 <Route path="/registro">
                     <Navbar />
                     <Register />                    
+                </Route>
+
+                <Route exact path="/productos/registro">
+                    <Navbar />
+                    <CrearProductos />
                 </Route>
 
             </Switch>

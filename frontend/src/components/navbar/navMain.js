@@ -9,7 +9,11 @@ const Navbar = () => {
 
     const [ isDisplayed, setDisplay] = useState(false);
     
-    const st = {backgroundColor: chosenColor[1]};
+    const st = {
+        backgroundColor: chosenColor[1],
+        borderColor: chosenColor[2]
+    };
+
     const st1 = {
         height: "25px" 
     };
