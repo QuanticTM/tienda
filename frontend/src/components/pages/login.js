@@ -1,6 +1,5 @@
 import { MainContainer }  from "../globalComponents/mainones";
-import { InputNormal, BotonEnvio, InputContraseña}  from "../globalComponents/forms";
-import Navbar  from "../navbar/navMain";
+import { MainHeader, InputNormal, BotonEnvio, InputContraseña }  from "../globalComponents/forms"; 
 
 const Login = () => {
     
@@ -9,11 +8,11 @@ const Login = () => {
         <MainContainer>
 
 
-            <h2>Login is here </h2>
+            <MainHeader>Login is here </MainHeader>
 
             <form onSubmit="" >
                
-                <p>Correo</p>
+                <p>Nombre</p>
                 <InputNormal /> 
 
                 <p>Contraseña</p> 

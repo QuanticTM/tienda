@@ -15,8 +15,8 @@ export const GlobalState = props => {
     // cambio de temas
     const Themes = {
         modoClaro:{
-            principal: "#fff",
-            secundario: "#ddd",
+            principal: "#ffe",
+            secundario: "#eed",
             letraPrincipal: "#111",
             letraSecundaria: "#333",
         },
@@ -42,14 +42,18 @@ export const GlobalState = props => {
     const [contraste, setContraste ] = useState(0);
     
     const listOfColors = [
-        ["#c33","Rojo"],
-        ["#31c282", "Verde"],
-        ["#1193ee", "Azul"],
-        ["#8123fe", "Morado"],
-        ["#d62", "Naranja" ]
+        ["#c33","Rojo", "#d44","#a00"],
+        ["#51b252", "Verde", "#62c363", "#2f9030"  ],
+        ["#4183ee", "Azul", "#5294ff", "#3072dd" ],
+        ["#9183fe", "Morado", "#9f94ff", "#7062dc"],
+        ["#c63", "Naranja", "#d74", "#a41" ]
         ];
 
-    const chosenColor = listOfColors[contraste][0] ;
+    const chosenColor = [
+        listOfColors[contraste][0],
+        listOfColors[contraste][2],
+        listOfColors[contraste][3]
+    ];
 
     const contextoGeneral = {
         tema : tema,

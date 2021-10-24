@@ -5,11 +5,14 @@ import NavMenu from "./navMenu";
 
 const Navbar = () => {
 
-    const { tema } = useContext(GlobalContext);
+    const { chosenColor } = useContext(GlobalContext);
+
     const [ isDisplayed, setDisplay] = useState(false);
     
-    const st = {backgroundColor: tema.principal};
-    const st1 = {height: "25px"};
+    const st = {backgroundColor: chosenColor[1]};
+    const st1 = {
+        height: "25px" 
+    };
     
     const Logo = () => <img src={BD} className="logo" style={st1} />
 
@@ -20,7 +23,7 @@ const Navbar = () => {
                     <Logo />
                 </div>
             </div>
-            {isDisplayed && <NavMenu> <p>Drogas</p></NavMenu> }
+            {isDisplayed && <NavMenu ch={() => setDisplay(!isDisplayed)} /> }
         </>
     )
 };

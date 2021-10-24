@@ -18,13 +18,16 @@ const InputNormal = props => {
 const BotonEnvio = props => {
 
     const { chosenColor } = useContext(GlobalContext);
+    const st = {backgroundColor: chosenColor[0]};
 
-    const st = {backgroundColor: chosenColor};
-
-    return (
-        <button className="post-bottom" style={st} >{props.children}</button>
-    )
+    return  <button className="post-bottom" style={st} >{props.children}</button>
 }
+
+const MainHeader = props => {
+    const { chosenColor } = useContext(GlobalContext);
+    return <h1 style={{color: chosenColor[2]}} > {props.children} </h1>
+}
+
 
 const InputContraseña = () => {
 
@@ -33,6 +36,4 @@ const InputContraseña = () => {
     )
 }
 
-
-
-export { InputNormal, BotonEnvio, InputContraseña};
+export {MainHeader, InputNormal, BotonEnvio, InputContraseña};

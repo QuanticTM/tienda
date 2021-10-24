@@ -23,7 +23,6 @@ body *{
     left: 0;
     height: 100%;
     width: 400px;
-    background-color: #f32;    
 }
 .main-wrapper{
     position: fixed;
@@ -65,10 +64,10 @@ body *{
 
 @media screen and (max-width: 600px) {
     .options-wrapper {
-        width: 70%;
+        width: 80%;
         height: 430px;
         margin: 0 auto;
-        left: 15%;
+        left: 13.5%;
         border-radius: 8px;
     }
 }
