@@ -13,12 +13,15 @@ Router.post("/create", async (req,res) => {
         disponibility: req.body.disponibility
     })
     const saved = await product.save();
-    res.send(saved);
+    console.log(saved);
+    return saved;
 })
 
 Router.get("/create", async (req,res) => {
 
     res.send("hola");
 })
+
+
 
 module.exports = Router;
