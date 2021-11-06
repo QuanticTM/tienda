@@ -1,21 +1,21 @@
 import { MainContainer }  from "../globalComponents/mainones";
-import { MainHeader, InputNormal, BotonEnvio }  from "../globalComponents/forms"; 
-import {useState} from "react";
+import { MainHeader, Selection, OptionStyled, InputNormal, BotonEnvio }  from "../globalComponents/forms"; 
+import useInput from "./useInput";
 
 const CrearProductos = () => {
     
     // state json post
     
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [unitaryValue, setUnitaryValue] = useState(0);
-    const [disponibility, setDisponibility] = useState(false);
+    const [name, setName] = useInput("");
+    const [description, setDescription] = useInput("");
+    const [unitaryValue, setUnitaryValue] = useInput(0);
+    const [disponibility, setDisponibility] = useInput(false);
 
 
     const productPosted = {
         name: name,
         description: description,
-        unitaryValue: unitaryValue,
+        unitaryValue: parseFloat(unitaryValue),
         disponibility: disponibility
     };
 
@@ -38,16 +38,18 @@ const CrearProductos = () => {
             <form onSubmit={enviar} >
                
                 <p>Nombre</p>
-                <InputNormal /> 
+                <InputNormal method={setName} /> 
 
                 <p>descripcion</p> 
-                <InputNormal /> 
+                <InputNormal method={setDescription}/> 
 
                 <p>Precio</p> 
-                <InputNormal /> 
+                <InputNormal method={setUnitaryValue}/> 
 
                 <p>Disponibilidad</p> 
-                <InputNormal /> 
+                <Selection >
+                    <option>per</option>
+                </Selection>
 
                 <BotonEnvio>Termina el Registro</BotonEnvio> 
             </form>

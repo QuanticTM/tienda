@@ -11,7 +11,7 @@ const InputNormal = props => {
     }
     
     return (
-        <input type={props.type || "text"} className="input-text" style={st}/>
+        <input type={props.type || "text"} onChange={props.method} className="input-text" style={st}/>
     )
 }
 
@@ -29,11 +29,28 @@ const MainHeader = props => {
 }
 
 
-const InputContraseña = () => {
+const InputContraseña = props => <InputNormal type="password" method={props.method}/>
 
-    return (
-        <InputNormal type="password" />
-    )
+const Selection = props => {
+
+    const { chosenColor, tema } = useContext(GlobalContext);
+    const st = { 
+        borderColor: chosenColor[1],
+        backgroundColor: tema.secundario,
+        color: tema.letraSecundaria
+    };
+
+    return <select className="selection" style={st} onChange={props.method} value={props.val} > {props.children} </select>
 }
 
-export {MainHeader, InputNormal, BotonEnvio, InputContraseña};
+const OptionStyled = props => {
+    
+    const { chosenColor } = useContext(GlobalContext);
+    const st = {
+        backgroundColor: chosenColor[0]
+    }
+    
+    return <option className="" value={props.value} >{props.children} </option>
+}
+
+export {MainHeader, InputNormal, BotonEnvio, InputContraseña, Selection, OptionStyled};

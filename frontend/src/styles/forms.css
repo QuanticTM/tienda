@@ -23,3 +23,13 @@
 .post-bottom:hover{
     transform: scale(1.1);
 }
+
+.selection{
+    width:200px;
+    height: 40px;
+    margin: 20px 0px;
+    max-width: 80%;
+    border: 0px;
+    border-radius: 15px;
+    text-align:center;
+}
