@@ -13,21 +13,30 @@ const CrearProductos = () => {
 
 
     const productPosted = {
-        name: name,
-        description: description,
-        unitaryValue: parseFloat(unitaryValue),
-        disponibility: disponibility
+        "name": name,
+        "description": description,
+        "unitaryValue": parseFloat(unitaryValue),
+        "disponibility": disponibility === "true" ? true : false
     };
 
     const preparacion = {
+        mode: "no-cors",
         method: "POST",
-        headers: {"Content-type": "application/json"},
+        headers: {"Content-type": "application/json", "charset":"utf-8"},
         body: JSON.stringify(productPosted)
     }    
 
-    const enviar = async () => await fetch("localhost/products/create", preparacion); 
-
-
+    const enviar = async (e) => {
+        e.preventDefault();
+        console.log("Enviado");
+        console.log(productPosted);
+        try{
+        await fetch("http://localhost:4269/products/create", preparacion); 
+        }
+        catch(de){
+            console.log(de + " error, no se uso fetch");
+        }
+    };
 
     return (
         <MainContainer>
@@ -47,8 +56,11 @@ const CrearProductos = () => {
                 <InputNormal method={setUnitaryValue}/> 
 
                 <p>Disponibilidad</p> 
-                <Selection >
-                    <option>per</option>
+                <Selection value={disponibility} method={setDisponibility} >
+
+                    <OptionStyled value={true} >En stock</OptionStyled>
+                    <OptionStyled value={false} >Sin stock</OptionStyled>
+
                 </Selection>
 
                 <BotonEnvio>Termina el Registro</BotonEnvio> 

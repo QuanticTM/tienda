@@ -1,10 +1,14 @@
 const express = require("express");
 const Router = express.Router();
 const Product = require("../blueprints/products");
+const bodyParser = require("body-parser");
 
+const JSONparsed = bodyParser.json()
 
 
 Router.post("/create", async (req,res) => {
+    console.log("enviando")
+    console.log(req.body);
     const product = new Product({
 
         name: req.body.name,  
@@ -17,7 +21,7 @@ Router.post("/create", async (req,res) => {
     return saved;
 })
 
-Router.get("/create", async (req,res) => {
+Router.get("/create", JSONparsed,async (req,res) => {
 
     res.send("hola");
 })

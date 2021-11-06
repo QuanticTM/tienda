@@ -45,12 +45,13 @@ const Selection = props => {
 
 const OptionStyled = props => {
     
-    const { chosenColor } = useContext(GlobalContext);
+    const { tema } = useContext(GlobalContext);
     const st = {
-        backgroundColor: chosenColor[0]
+        backgroundColor: tema.secundario,
+        color: tema.letraSecundaria
     }
     
-    return <option className="" value={props.value} >{props.children} </option>
+    return <option className="options-styled" style={st} value={props.value} >{props.children} </option>
 }
 
 export {MainHeader, InputNormal, BotonEnvio, InputContraseña, Selection, OptionStyled};

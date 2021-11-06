@@ -18,7 +18,7 @@ const Navbar = () => {
         height: "25px" 
     };
     
-    const Logo = () => <img src={BD} className="logo" style={st1} />
+    const Logo = () => <img src={BD} alt="menu-logo" className="logo" style={st1} />
 
     return ( 
         <>

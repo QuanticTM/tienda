@@ -33,3 +33,13 @@
     border-radius: 15px;
     text-align:center;
 }
+
+
+.options-styled{
+    height:30px;
+    width: 190px;
+    max-width:78%;
+    border-radius: 15px;
+    text-align:center;
+    color: #fff;
+}

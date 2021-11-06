@@ -35,7 +35,7 @@ body *{
     overflow-y: scroll;
 }
 .main-container{
-    margin-top: 20px;
+    margin-top: 5rem;
     border-radius: 4px;
     width:700px;
     max-width: 80%;
