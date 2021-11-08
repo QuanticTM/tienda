@@ -21,7 +21,7 @@ app.use("/products", require("./routes/productsR"));
 
 
 // connect
-const connectionUrl = "mongodb+srv://bdAdmin:b1pIzXu8ucc6RXt4@cluster0.5roux.mongodb.net/Project_0?retryWrites=true&w=majority"
+//const connectionUrl = 
 
 mongoose.connect(connectionUrl)
 .catch(err => console.log("this happened " + err));
