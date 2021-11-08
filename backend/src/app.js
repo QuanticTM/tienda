@@ -21,11 +21,16 @@ app.use("/products", require("./routes/productsR"));
 
 
 // connect
-//const connectionUrl = 
+
+// const connectionUrl = 
 
 mongoose.connect(connectionUrl)
+.then(db => console.log(db + " Conectado al puerto " + app.get("port")))
 .catch(err => console.log("this happened " + err));
 
 
 
+app.listen(app.get("port"), () => {
+    console.log("Listening");
+});
 
