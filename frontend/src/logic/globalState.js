@@ -36,6 +36,12 @@ export const GlobalState = props => {
    
     const [modulo, cambiarModulo] = useState(0);
     const [rol, setRol] = useState(0);
+    const ListaDeRoles = [
+        "ninguno",
+        "pendiente",
+        "vendedor",
+        "admin"
+    ]
 
     // cambio del color de acentuacion
     
@@ -62,6 +68,7 @@ export const GlobalState = props => {
         cambiarModulo: cambiarModulo,
         rol : rol,
         setRol : setRol,
+        ListaDeRoles: ListaDeRoles,
         contraste : contraste,
         setContraste : setContraste,
         chosenColor : chosenColor,

@@ -1,5 +1,6 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/navbar/navMain";
+import EstaPendiente from "./logic/pendiente";
 
 // pages 
 
@@ -19,12 +20,16 @@ const App = () => {
 
                 <Route path="/login">
                     <Navbar />
-                    <Login />
+                    <EstaPendiente>
+                        <Login />
+                    </EstaPendiente>
                 </Route>
 
                 <Route path="/registro">
                     <Navbar />
-                    <Register />                    
+                    <EstaPendiente>
+                        <Register />
+                    </EstaPendiente>
                 </Route>
 
                 <Route exact path="/productos/registro">

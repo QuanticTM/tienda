@@ -9,6 +9,7 @@ import './styles/index.css';
 import './styles/home.css';
 import './styles/forms.css';
 import './styles/navbar.css'
+import './styles/logic.css'
 
 
 ReactDOM.render(
