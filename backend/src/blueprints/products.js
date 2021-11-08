@@ -20,4 +20,9 @@ const productSch = new Schema({
     }
 })
 
-module.export = mongoose.model("Product",productSch);
+const fer = mongoose.model("Product", productSch);
+
+console.log("hola " +typeof(fer));
+
+module.exports = fer;
+

@@ -20,7 +20,6 @@ const CrearProductos = () => {
     };
 
     const preparacion = {
-        mode: "no-cors",
         method: "POST",
         headers: {"Content-type": "application/json", "charset":"utf-8"},
         body: JSON.stringify(productPosted)
@@ -30,12 +29,11 @@ const CrearProductos = () => {
         e.preventDefault();
         console.log("Enviado");
         console.log(productPosted);
-        try{
-        await fetch("http://localhost:4269/products/create", preparacion); 
-        }
-        catch(de){
-            console.log(de + " error, no se uso fetch");
-        }
+
+        fetch("http://localhost:4269/products/create", preparacion)
+        .then(response => response.json())
+        .then(data => console.log(data)) 
+        .catch(err => console.log(err));
     };
 
     return (

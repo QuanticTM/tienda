@@ -2,11 +2,7 @@ const exp = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const app = exp();
-
-// routes
-
-app.use("/products", require("./routes/productsR"));
-
+const cors = require("cors");
 
 // it changes the server port or defaults to 4269
 
@@ -14,29 +10,21 @@ app.set('port', process.env.PORT || 4269 );
 
 // middleware
 
-app.use(exp.urlencoded({extended: false}));
+app.use(exp.urlencoded({extended: true}));
 app.use(exp.json());
+app.use(cors());
 
-const connectionUrl = "mongodb+srv://dbAdmin:b1pIzXu8ucc6RXt4@cluster0.5roux.mongodb.net/Cluster0?retryWrites=true&w=majority";
+
+// routes
+
+app.use("/products", require("./routes/productsR"));
 
 
-const { MongoClient } = require('mongodb');
+// connect
+const connectionUrl = "mongodb+srv://bdAdmin:b1pIzXu8ucc6RXt4@cluster0.5roux.mongodb.net/Project_0?retryWrites=true&w=majority"
 
-try{
-    const client = new MongoClient(connectionUrl, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect(err => {
-      const collection = client.db("test").collection("devices");
-      // perform actions on the collection object
-      client.close();
-    });
-    app.listen( app.get("port"), () => {
-        console.log("connected to port " + app.get("port"));
-    });
-}
-catch(err){
-    console.log(err);
-    console.log("An error has occurred");
-}
+mongoose.connect(connectionUrl)
+.catch(err => console.log("this happened " + err));
 
 
 
