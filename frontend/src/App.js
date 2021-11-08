@@ -1,6 +1,8 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/navbar/navMain";
 import EstaPendiente from "./logic/pendiente";
+import EsAdmin from "./logic/esAdmin";
+import EsVendedor from "./logic/esVendedor";
 
 // pages 
 
@@ -27,14 +29,16 @@ const App = () => {
 
                 <Route path="/registro">
                     <Navbar />
-                    <EstaPendiente>
+                    <EsVendedor>
                         <Register />
-                    </EstaPendiente>
+                    </EsVendedor>
                 </Route>
 
                 <Route exact path="/productos/registro">
                     <Navbar />
-                    <CrearProductos />
+                    <EsAdmin>
+                        <CrearProductos />
+                    </EsAdmin>
                 </Route>
 
             </Switch>
