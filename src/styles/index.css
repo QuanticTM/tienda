@@ -65,6 +65,27 @@ a {
     margin: 20px 30px ;
 }
 
+.main-table{
+    width: 85%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 60px 0;
+}
+
+.table-cell{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    border: 1px solid;
+}
+
+.head1{
+    border-radius: 25px 0 0 0;
+}
+
+.head2{
+    border-radius: 0 25px  0 0;
+}
 @media screen and (max-width: 600px) {
     .options-wrapper {
         width: 80%;

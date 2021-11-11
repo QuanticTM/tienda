@@ -24,3 +24,50 @@ export const MainContainer = props => {
         </div>
     )
 }
+
+export const MainTable = props => {
+
+    return(
+        <div className="main-table">
+            {props.children}
+        </div>
+    )
+}
+
+export const TableCell = props => {
+
+    const { chosenColor } = useContext(GlobalContext);
+    const st = {borderColor: chosenColor[1]};
+
+    return (
+        <>
+            <div className="table-cell" style={st}>
+                <p>{props.children}</p>
+            </div>
+            <div className="table-cell" style={st} onClick={props.method}>
+                <p>{props.disponibility ? "En Stock" : "Fuera de Stock"}</p>
+            </div>
+            
+        </>
+
+    )
+}
+
+export const TableHeader = () => {
+
+    const { chosenColor } = useContext(GlobalContext);
+    const st = {borderColor: chosenColor[1]};
+
+    return (
+        <>
+            <div className="table-cell head1" style={st}>
+                <p>Nombre del producto</p>
+            </div>
+            <div className="table-cell head2" style={st} >
+                <p>Disponibilidad</p>
+            </div>
+            
+        </>
+
+    )
+}

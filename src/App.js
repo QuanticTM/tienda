@@ -10,6 +10,7 @@ import Home from "./components/pages/home";
 import Login from "./components/pages/login";
 import Register from "./components/pages/register";
 import CrearProductos from "./components/pages/crearProductos";
+import ListarProductos from "./components/pages/listarProductos";
 
 const App = () => {
     return (
@@ -41,6 +42,12 @@ const App = () => {
                     </EsAdmin>
                 </Route>
 
+                <Route exact path="/productos/listar">
+                    <Navbar />
+                    <EsVendedor>
+                        <ListarProductos />
+                    </EsVendedor>
+                </Route>
             </Switch>
         </Router>
     );
