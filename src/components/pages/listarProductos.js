@@ -18,10 +18,30 @@ const ListarProductos = () => {
         .catch(err => console.log(err))
     }, [actu])
 
+    function changeDisponibility(id) {
+        
+        const preparacion = {
+            method: "POST",
+            headers: {"Content-type": "application/json", "charset":"utf-8"},
+            body: JSON.stringify({"id": id})
+        }    
+        fetch("http://localhost:4269/products/change-disponibility", preparacion)
+        .then(response => response.json())
+        .then(data => console.log(data)) 
+        .catch(err => console.log(err));
+        setActu(!actu);
+    }
     console.log(allProducts);
 
     const cells = allProducts.map(prod => {
-        return <TableCell key={prod._id} disponibility={prod.disponibility}>{prod.name}</TableCell>
+        return (
+            <TableCell key={prod._id} 
+                disponibility={prod.disponibility}
+                method={ () => changeDisponibility(prod._id) }>
+                {prod.name}
+            </TableCell>
+       
+        )
     })
     return !page  ?(
         <MainContainer>

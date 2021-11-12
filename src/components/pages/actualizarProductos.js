@@ -39,7 +39,7 @@ const ActualizarProductos = props => {
         <MainContainer>
 
 
-            <MainHeader>Registra el nuevo Producto</MainHeader>
+            <MainHeader>Actualiza el Producto</MainHeader>
 
             <form onSubmit={enviar} >
                
@@ -62,6 +62,9 @@ const ActualizarProductos = props => {
 
                 <BotonEnvio>Termina el Registro</BotonEnvio> 
             </form>
+            
+            <BotonEnvio>Termina el Registro</BotonEnvio> 
+        
         </MainContainer>
     )
 };

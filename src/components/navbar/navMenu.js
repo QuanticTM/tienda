@@ -57,6 +57,7 @@ const OptionsNav = () => {
                     <NavItem> <Link to="/login">Login</Link> </NavItem> 
                     <NavItem> <Link to="/registro">Registro de usuarios</Link> </NavItem> 
                     <NavItem> <Link to="/productos/registro">Añadir nuevos productos</Link> </NavItem> 
+                    <NavItem> <Link to="/productos/listar">Actualizar productos</Link> </NavItem> 
                     <NavItem method={() => setM(0)}  >Volver</NavItem> 
                 </>
             );
