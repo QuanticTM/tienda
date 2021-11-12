@@ -25,12 +25,13 @@ app.use("/products", require("./routes/productsR"));
 //const connectionUrl = 
 
 mongoose.connect(connectionUrl)
-.then(db => console.log(db + " Conectado al puerto " + app.get("port")))
+.then(() => (
+    app.listen(app.get("port"), () => {
+        console.log("Listening");
+    })
+))
 .catch(err => console.log("this happened " + err));
 
 
 
-app.listen(app.get("port"), () => {
-    console.log("Listening");
-});
 
