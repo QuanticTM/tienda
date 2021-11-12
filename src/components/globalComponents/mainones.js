@@ -41,7 +41,7 @@ export const TableCell = props => {
 
     return (
         <>
-            <div className="table-cell" style={st}>
+            <div className="table-cell" style={st} onClick={props.redirect}>
                 <p>{props.children}</p>
             </div>
             <div className="table-cell" style={st} onClick={props.method}>
