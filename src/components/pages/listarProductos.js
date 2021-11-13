@@ -33,10 +33,16 @@ const ListarProductos = () => {
     }
     console.log(allProducts);
 
+    const actualize = id => {
+        setId(id);
+        setPage(!page);
+    } 
+
     const cells = allProducts.map(prod => {
         return (
             <TableCell key={prod._id} 
                 disponibility={prod.disponibility}
+                redirect={() => actualize(prod._id)}
                 method={ () => changeDisponibility(prod._id) }>
                 {prod.name}
             </TableCell>
@@ -54,7 +60,7 @@ const ListarProductos = () => {
             </MainTable>
         </MainContainer>
     ) : (
-        <ActualizarProductos id="" />
+        <ActualizarProductos id={actualId} />
 
     )
 

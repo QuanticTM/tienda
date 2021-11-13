@@ -11,7 +11,8 @@ const InputNormal = props => {
     }
     
     return (
-        <input type={props.type || "text"} onChange={props.method} className="input-text" style={st}/>
+        <input type={props.type || "text"} onChange={props.method} value={props.val}
+        className="input-text" style={st}/>
     )
 }
 
