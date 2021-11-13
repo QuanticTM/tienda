@@ -16,7 +16,6 @@ Router.post("/create", async (req, res) => {
     res.send("recibido");
 })
 
-
 Router.get("/findall", (req, res) => {
     
     console.log("pedidos todos")
@@ -24,7 +23,6 @@ Router.get("/findall", (req, res) => {
         err ? console.log(err) :
             res.json(result);
     });
-    console.log("termino")
 })
 
 Router.post("/change-disponibility", async (req, res) => {
@@ -32,13 +30,28 @@ Router.post("/change-disponibility", async (req, res) => {
     try{
         let productChoose = await Product.findById( req.body.id);
         productChoose.disponibility = !productChoose.disponibility;
-        productChoose.save();
+        await productChoose.save();
         res.send("disponibilidad actualizada");
     }
     catch(err){
         console.log(err);
     }
 }) 
+
+Router.post("/actualize", async (req, res) => {
+
+    console.log(req.body);
+
+    await Product.findByIdAndUpdate(req.body.id, {
+    name : req.body.name,
+    description : req.body.description,
+    unitaryValue : req.body.unitaryValue,
+    disponibility : req.body.disponibility
+    },
+    (err, result) => console.log(err || result)
+    ).catch(err => console.log(err))
+}) 
+
 
 
 module.exports = Router;
