@@ -15,9 +15,12 @@ code {
 
 body *{
     transition: 0.3s;
-
 }
 
+a {
+    color: #fff;
+    text-decoration: none;
+}
 .options-wrapper{
     position: fixed;
     left: 0;

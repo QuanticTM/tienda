@@ -1,5 +1,9 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/navbar/navMain";
+import EstaPendiente from "./logic/pendiente";
+import EsAdmin from "./logic/esAdmin";
+import EsVendedor from "./logic/esVendedor";
+
 
 // pages 
 
@@ -19,17 +23,23 @@ const App = () => {
 
                 <Route path="/login">
                     <Navbar />
-                    <Login />
+                    <EstaPendiente>
+                        <Login />
+                    </EstaPendiente>
                 </Route>
 
                 <Route path="/registro">
                     <Navbar />
-                    <Register />                    
+                    <EsVendedor>
+                        <Register />
+                    </EsVendedor>
                 </Route>
 
                 <Route exact path="/productos/registro">
                     <Navbar />
-                    <CrearProductos />
+                    <EsAdmin>
+                        <CrearProductos />
+                    </EsAdmin>
                 </Route>
 
             </Switch>
