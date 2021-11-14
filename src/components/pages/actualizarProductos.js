@@ -5,31 +5,15 @@ import useInput from "./useInput";
 
 const ActualizarProductos = props => {
 
-    const [name, setName] = useInput("");
-    const [description, setDescription] = useInput("");
-    const [unitaryValue, setUnitaryValue] = useInput(0);
-    const [disponibility, setDisponibility] = useInput(false);
+    const [name, setName] = useInput(props.prod.name);
+    const [description, setDescription] = useInput(props.prod.description);
+    const [unitaryValue, setUnitaryValue] = useInput(props.prod.unitaryValue);
+    const [disponibility, setDisponibility] = useInput(props.prod.disponibility);
 
-
-    const req = {
-        method: "POST",
-        headers: {"Content-type": "application/json", "charset":"utf-8"},
-        body: JSON.stringify({"id": props._id})
-    }
-    useEffect(() => {
-        fetch("http://localhost:4269/products/findone", req)
-        .then(res => res.json())
-        .then(data => {
-            setName(data.name);
-            setDescription(data.description);
-            setUnitaryValue(data.unitaryValue);
-            setDisponibility(data.disponibility);
-        })
-        .catch(err => console.log(err));
-    },[])
     
 
     const productPosted = {
+        "id": props.prod._id,
         "name": name,
         "description": description,
         "unitaryValue": parseFloat(unitaryValue),
@@ -81,7 +65,7 @@ const ActualizarProductos = props => {
                 <BotonEnvio>Actualiza</BotonEnvio> 
             </form>
             
-            <BotonEnvio>vuelve</BotonEnvio> 
+            <BotonEnvio onClick={props.volver}>vuelve</BotonEnvio> 
         
         </MainContainer>
     )

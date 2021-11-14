@@ -8,7 +8,7 @@ const ListarProductos = () => {
     const [allProducts, setAProd] = useState([]);
     const [actu, setActu ] = useState(false);
     const [page, setPage ] = useState(false);
-    const [actualId, setId] = useState("");
+    const [actualIndex, setIndex] = useState(null);
 
 
     useEffect(() => {
@@ -33,16 +33,16 @@ const ListarProductos = () => {
     }
     console.log(allProducts);
 
-    const actualize = id => {
-        setId(id);
+    const actualize = index => {
+        setIndex(index);
         setPage(!page);
     } 
 
-    const cells = allProducts.map(prod => {
+    const cells = allProducts.map((prod, i) => {
         return (
             <TableCell key={prod._id} 
                 disponibility={prod.disponibility}
-                redirect={() => actualize(prod._id)}
+                redirect={() => actualize(i)}
                 method={ () => changeDisponibility(prod._id) }>
                 {prod.name}
             </TableCell>
@@ -60,7 +60,7 @@ const ListarProductos = () => {
             </MainTable>
         </MainContainer>
     ) : (
-        <ActualizarProductos id={actualId} />
+        <ActualizarProductos volver={() => setPage(false)} prod={allProducts[actualIndex]} />
 
     )
 
