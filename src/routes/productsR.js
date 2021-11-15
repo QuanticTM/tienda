@@ -4,8 +4,7 @@ const Product = require("../blueprints/products");
 
 
 Router.post("/create", async (req, res) => {
-    console.log(req.body);
-    console.log(req.body.name);
+
     const product = new Product({
         name: req.body.name,  
         description: req.body.description,  
@@ -18,7 +17,6 @@ Router.post("/create", async (req, res) => {
 
 Router.get("/findall", (req, res) => {
     
-    console.log("pedidos todos")
     Product.find({}, (err, result) => {
         err ? console.log(err) :
             res.json(result);
@@ -48,7 +46,7 @@ Router.post("/actualize", async (req, res) => {
     unitaryValue : req.body.unitaryValue,
     disponibility : req.body.disponibility
     },
-    (err, result) => console.log(err || result)
+    (err, result) => console.log(err ? err : result)
     ).catch(err => console.log(err))
 }) 
 

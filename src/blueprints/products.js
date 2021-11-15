@@ -18,7 +18,7 @@ const productSch = new Schema({
         type: Boolean,
         required: true
     }
-})
+});
 
 const fer = mongoose.model("Product", productSch);
 

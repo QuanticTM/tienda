@@ -18,16 +18,17 @@ app.use(cors());
 // routes
 
 app.use("/products", require("./routes/productsR"));
+app.use("/users", require("./routes/usersR"));
 
 
 // connect
 
-//const connectionUrl =
+const connectionUrl = "mongodb+srv://bdAdmin:b1pIzXu8ucc6RXt4@cluster0.5roux.mongodb.net/Project_0?retryWrites=true&w=majority";
 
 mongoose.connect(connectionUrl)
 .then(() => (
     app.listen(app.get("port"), () => {
-        console.log("Listening");
+        console.log("Listening in port: " +  app.get("port"));
     })
 ))
 .catch(err => console.log("this happened " + err));
