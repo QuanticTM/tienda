@@ -60,5 +60,33 @@ Router.post("/create", async (req, res) => {
 
 })
 
+Router.post("/actualize", async (req, res) =>{
+
+    try
+    {
+        let userChoose = await User.findById( req.body.id);
+        if(req.body.rol)
+        {
+           userChoose.rol = req.body.rol; 
+            await userChoose.save();
+            res.send("actualizar rol");
+        }
+        else if(req.body.estado)
+        {
+            userChoose.estado = req.body.estado; 
+            await userChoose.save();
+            res.send("actualizar estado");
+        }
+        else
+        {
+        res.send("Cambios sin hacer");
+        }
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+})
+
 
 module.exports = Router;
