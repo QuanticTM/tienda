@@ -43,3 +43,48 @@
     text-align:center;
     color: #fff;
 }
+.menu-centrado{
+    position:absolute;
+    align-self :center;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    width: 500px;
+    max-width: 70%;
+    border-right: 9px solid;
+    border-bottom: 9px solid;
+    border-radius: 13px;
+}
+
+.menu-centrado form {
+    width:100%;
+}
+.menu-centrado h2{
+    color: #fff;
+}
+
+.container-button{
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+
+.dual-button{
+    background-color: rgba(0,0,0,0);
+    padding: 10px;
+    border:1px solid  white;
+    color: white;
+}
+.main{
+    border-radius: 20px 0 0 20px;
+}
+
+.secundary{
+    border-radius: 0 20px 20px 0;
+}
+
+
+
+
+
+

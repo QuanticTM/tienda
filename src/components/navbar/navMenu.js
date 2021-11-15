@@ -12,7 +12,7 @@ const OptionsNav = () => {
         let x = [];
         for(let i = 0; i < a.length; i++){
             x.push(
-                <NavColor method={() => setContraste(i)} color={a[i][0]}>
+                <NavColor key={i}  method={() => setContraste(i)} color={a[i][0]}>
                     {a[i][1]}
                 </NavColor>
             );
@@ -54,8 +54,7 @@ const OptionsNav = () => {
             return (
                 <>
                     <NavItem> <Link to="/">Inicio</Link> </NavItem> 
-                    <NavItem> <Link to="/login">Login</Link> </NavItem> 
-                    <NavItem> <Link to="/registro">Registro de usuarios</Link> </NavItem> 
+                    <NavItem> <Link to="/usuarios/manejo">Manejo de usuarios</Link> </NavItem> 
                     <NavItem> <Link to="/productos/registro">Añadir nuevos productos</Link> </NavItem> 
                     <NavItem> <Link to="/productos/listar">Actualizar productos</Link> </NavItem> 
                     <NavItem method={() => setM(0)}  >Volver</NavItem> 
@@ -72,7 +71,7 @@ const NavMenu = props => {
     const st = {
         backgroundColor: chosenColor[1] ,
         color: "#fff",
-        borderColor: tema.secundario
+        borderColor: chosenColor[2]
     };
     
     return (  

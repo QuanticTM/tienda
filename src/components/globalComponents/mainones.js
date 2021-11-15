@@ -53,7 +53,25 @@ export const TableCell = props => {
     )
 }
 
-export const TableHeader = () => {
+export const TableUser = props => {
+
+    const { chosenColor } = useContext(GlobalContext);
+    const st = {borderColor: chosenColor[1]};
+
+    return (
+        <>
+            <div className="table-cell" style={st} onClick={props.redirect}>
+                <p>{props.children}</p>
+            </div>
+            <div className="table-cell" style={st} onClick={props.method}>
+                <p>{props.estado}</p>
+            </div>
+            
+        </>
+
+    )
+}
+export const TableHeader = props => {
 
     const { chosenColor } = useContext(GlobalContext);
     const st = {borderColor: chosenColor[1]};
@@ -61,10 +79,10 @@ export const TableHeader = () => {
     return (
         <>
             <div className="table-cell head1" style={st}>
-                <p>Nombre del producto</p>
+                <p>{props.head1}</p>
             </div>
             <div className="table-cell head2" style={st} >
-                <p>Disponibilidad</p>
+                <p>{props.head2}</p>
             </div>
             
         </>

@@ -1,20 +1,20 @@
-import { MainContainer, MainTable, TableCell, TableHeader} from "../globalComponents/mainones";
+import {useEffect, useState } from "react";
+import { MainContainer, MainTable, TableHeader, TableUser } from "../globalComponents/mainones";
+import MenuCentrado from "../globalComponents/menuCentrado";
 import { MainHeader } from "../globalComponents/forms";
-import {useEffect, useState} from "react";
-import ActualizarProductos from "./actualizarProductos";
 
-const ListarProductos = () => {
+const ManejoDeUsuarios = () => {
 
-    const [allProducts, setAProd] = useState([]);
+    const [allUsers, setAUsers] = useState([]);
     const [actu, setActu ] = useState(false);
     const [page, setPage ] = useState(false);
     const [actualIndex, setIndex] = useState(null);
 
 
     useEffect(() => {
-        fetch("http://localhost:4269/products/findall")
+        fetch("http://localhost:4269/users/findall")
         .then(res => res.json())
-        .then(data => setAProd(data))
+        .then(data => setAUsers(data))
         .catch(err => console.log(err))
     }, [actu])
 
@@ -25,45 +25,42 @@ const ListarProductos = () => {
             headers: {"Content-type": "application/json", "charset":"utf-8"},
             body: JSON.stringify({"id": id})
         }    
-        fetch("http://localhost:4269/products/change-disponibility", preparacion)
+        fetch("http://localhost:4269/products/actualize", preparacion)
         .then(response => response.json())
         .then(data => console.log(data)) 
         .catch(err => console.log(err));
         setActu(!actu);
     }
-    console.log(allProducts);
+    console.log(allUsers);
 
     const actualize = index => {
         setIndex(index);
         setPage(!page);
     } 
 
-    const cells = allProducts.map((prod, i) => {
+    const cells = allUsers.map((usr, i) => {
         return (
-            <TableCell key={prod._id} 
-                disponibility={prod.disponibility}
+            <TableUser key={usr._id} 
+                estado={usr.estado}
                 redirect={() => actualize(i)}
-                method={ () => changeDisponibility(prod._id) }>
-                {prod.name}
-            </TableCell>
+                method={ () => changeDisponibility(usr._id) }>
+                {usr.name}
+            </TableUser>
        
         )
     })
-    return !page  ?(
+    return (
         <MainContainer>
-            <MainHeader>Busca tu Producto</MainHeader>
+            <MainHeader>Busca los Usuarios</MainHeader>
             
             <MainTable>
-                <TableHeader head1="Productos" head2="Disponibilidad"/>
+                <TableHeader head1="Nombre" head2="Estado" />
                 {cells}
             </MainTable>
+            {page && <MenuCentrado exitMethod={() => setPage(!page)} >Cambiar papel</MenuCentrado>}
         </MainContainer>
-    ) : (
-        <ActualizarProductos volver={() => setPage(false)} prod={allProducts[actualIndex]} />
-
     )
-
-
 }
 
-export default ListarProductos
+
+export default ManejoDeUsuarios;

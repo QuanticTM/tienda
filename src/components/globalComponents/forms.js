@@ -55,4 +55,26 @@ const OptionStyled = props => {
     return <option className="options-styled" style={st} value={props.value} >{props.children} </option>
 }
 
-export {MainHeader, InputNormal, BotonEnvio, InputContraseña, Selection, OptionStyled};
+const SelectionC = props => {
+
+    const { chosenColor } = useContext(GlobalContext);
+    const st = { 
+        borderColor: "black",
+        backgroundColor: chosenColor[2],
+        color: "white"
+    };
+
+    return <select className="selection" style={st} onChange={props.method} value={props.val} > {props.children} </select>
+}
+
+const OptionStyledC = props => {
+    
+    const {chosenColor } = useContext(GlobalContext);
+    const st = {
+        backgroundColor: chosenColor[2],
+        color: "white"
+    }
+    
+    return <option className="options-styled" style={st} value={props.value} >{props.children} </option>
+}
+export {MainHeader, SelectionC, OptionStyledC, InputNormal, BotonEnvio, InputContraseña, Selection, OptionStyled};

@@ -42,6 +42,15 @@ export const GlobalState = props => {
         "Administrador"
     ]
  
+    const { user, isLoading, isAuthenticated } = useAuth0()
+
+    if(!isLoading)
+    {
+        if(isAuthenticated)
+        {
+            
+        }
+    }
     // cambio del color de acentuacion
 
     

@@ -24,7 +24,6 @@
 }
 
 .nav-menu{
-    
     z-index: 2;
     animation: rotate 0.1s linear;
     top: 50px;
@@ -32,6 +31,7 @@
     display: flex;
     flex-direction:column; 
     align-items: center;    
+    border-right: 1px solid;
 }
 
 .nav-item{
