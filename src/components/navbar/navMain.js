@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { GlobalContext } from "../../logic/globalState";
 import BD from "./BD.svg";
 import NavMenu from "./navMenu";
+import UserInfo from "./userInfo";
 
 const Navbar = () => {
 
@@ -26,6 +27,7 @@ const Navbar = () => {
                 <div onClick={() => setDisplay(!isDisplayed)} >
                     <Logo />
                 </div>
+                <UserInfo />
             </div>
             {isDisplayed && <NavMenu ch={() => setDisplay(!isDisplayed)} /> }
         </>

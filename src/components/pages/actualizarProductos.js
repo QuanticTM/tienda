@@ -28,8 +28,6 @@ const ActualizarProductos = props => {
 
     const enviar = async (e) => {
         e.preventDefault();
-        console.log("Enviado");
-        console.log(productPosted);
 
         fetch("http://localhost:4269/products/actualize", preparacion)
         .then(response => response.json())
@@ -62,10 +60,8 @@ const ActualizarProductos = props => {
 
                 </Selection>
 
-                <BotonEnvio>Actualiza</BotonEnvio> 
+                <BotonEnvio>Confirma la Actualización</BotonEnvio> 
             </form>
-            
-            <BotonEnvio onClick={props.volver}>vuelve</BotonEnvio> 
         
         </MainContainer>
     )

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {GlobalState} from "./logic/globalState";
+import AuthGlobalProvider from './logic/authContext'; 
 
 // styles
 
@@ -14,9 +15,11 @@ import './styles/logic.css'
 
 ReactDOM.render(
     <React.StrictMode>
-        <GlobalState>
-            <App />
-        </GlobalState>
+        <AuthGlobalProvider>
+            <GlobalState>
+                    <App />
+            </GlobalState>
+        </AuthGlobalProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

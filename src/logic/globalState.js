@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
-
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 // global theme 
 
@@ -36,14 +35,15 @@ export const GlobalState = props => {
    
     const [modulo, cambiarModulo] = useState(0);
     const [rol, setRol] = useState(0);
-    const ListaDeRoles = [
+    const listaDeRoles = [
         "ninguno",
-        "pendiente",
-        "vendedor",
-        "admin"
+        "Pendiente",
+        "Vendedor",
+        "Administrador"
     ]
-
+ 
     // cambio del color de acentuacion
+
     
     const [contraste, setContraste ] = useState(0);
     
@@ -68,7 +68,7 @@ export const GlobalState = props => {
         cambiarModulo: cambiarModulo,
         rol : rol,
         setRol : setRol,
-        ListaDeRoles: ListaDeRoles,
+        listaDeRoles: listaDeRoles,
         contraste : contraste,
         setContraste : setContraste,
         chosenColor : chosenColor,
