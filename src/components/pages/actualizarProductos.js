@@ -1,6 +1,5 @@
 import { MainContainer }  from "../globalComponents/mainones";
 import { MainHeader, Selection, OptionStyled, InputNormal, BotonEnvio }  from "../globalComponents/forms"; 
-import { useEffect } from "react";
 import useInput from "./useInput";
 
 const ActualizarProductos = props => {
@@ -17,7 +16,7 @@ const ActualizarProductos = props => {
         "name": name,
         "description": description,
         "unitaryValue": parseFloat(unitaryValue),
-        "disponibility": disponibility == "true" ? true : false
+        "disponibility": disponibility === "true" ? true : false
     };
 
     const preparacion = {

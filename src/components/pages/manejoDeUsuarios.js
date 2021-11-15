@@ -2,6 +2,7 @@ import {useEffect, useState } from "react";
 import { MainContainer, MainTable, TableHeader, TableUser } from "../globalComponents/mainones";
 import MenuCentrado from "../globalComponents/menuCentrado";
 import { MainHeader } from "../globalComponents/forms";
+import useInput from "./useInput";
 
 const ManejoDeUsuarios = () => {
 
@@ -9,7 +10,9 @@ const ManejoDeUsuarios = () => {
     const [actu, setActu ] = useState(false);
     const [page, setPage ] = useState(false);
     const [actualIndex, setIndex] = useState(null);
-
+    const [rolOrState, setThis] = useState(false); 
+    const [rol, setRol] = useInput("");
+    const [estado, setEstado] = useInput("");
 
     useEffect(() => {
         fetch("http://localhost:4269/users/findall")
@@ -18,23 +21,73 @@ const ManejoDeUsuarios = () => {
         .catch(err => console.log(err))
     }, [actu])
 
-    function changeDisponibility(id) {
-        
+    const itemsDeEstado = ["no autorizado","pendiente","no pendiente"];
+    const itemsDeRol = ["administrador", "vendedor"]; 
+
+    const actualizeUser = async (e) => {
+
+
+        const bodyP = rolOrState ? {
+            "id": allUsers[actualIndex]._id,
+            "rol": rol,
+        } : {
+            "id": allUsers[actualIndex]._id,
+            "estado": estado
+        };
+
         const preparacion = {
             method: "POST",
             headers: {"Content-type": "application/json", "charset":"utf-8"},
-            body: JSON.stringify({"id": id})
-        }    
-        fetch("http://localhost:4269/products/actualize", preparacion)
+            body: JSON.stringify(bodyP)
+        };
+
+        fetch("http://localhost:4269/users/actualize", preparacion)
         .then(response => response.json())
         .then(data => console.log(data)) 
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
         setActu(!actu);
-    }
-    console.log(allUsers);
+    /*
+        };
+        if(isRol){
+            preparacion = {
+            }   
+        }
+        else
+        {
 
-    const actualize = index => {
+        }
+    }
+    */
+    }
+    const MenusManUsr = () => {
+        if(allUsers.length !== 0)
+        {
+            return rolOrState ? (
+                <MenuCentrado 
+                    value={rol}
+                    setter={setRol}
+                    items={itemsDeRol}
+                    method={() => actualizeUser()}
+                    methodName={"Cambiar de rol"}
+                    exitMethod={() => setPage(!page)} >
+                    Cambiar Rol de {allUsers[actualIndex].name}
+                </MenuCentrado>)
+                :(
+                <MenuCentrado 
+                    value={estado}
+                    setter={setEstado}
+                    items={itemsDeEstado}
+                    method={() => actualizeUser()}
+                    methodName={"Cambiar de estado"}
+                    exitMethod={() => setPage(!page)} >
+                    Cambiar Estado de {allUsers[actualIndex].name}
+                </MenuCentrado>
+            )
+        }
+    }
+    const actualize = (index, deploy) => {
         setIndex(index);
+        setThis(deploy);
         setPage(!page);
     } 
 
@@ -42,8 +95,8 @@ const ManejoDeUsuarios = () => {
         return (
             <TableUser key={usr._id} 
                 estado={usr.estado}
-                redirect={() => actualize(i)}
-                method={ () => changeDisponibility(usr._id) }>
+                redirect={() => actualize(i, true)}
+                method={ () => actualize(i, false) }>
                 {usr.name}
             </TableUser>
        
@@ -57,10 +110,10 @@ const ManejoDeUsuarios = () => {
                 <TableHeader head1="Nombre" head2="Estado" />
                 {cells}
             </MainTable>
-            {page && <MenuCentrado exitMethod={() => setPage(!page)} >Cambiar papel</MenuCentrado>}
+            {page && <MenusManUsr/>}
         </MainContainer>
     )
 }
 
 
-export default ManejoDeUsuarios;
+export default ManejoDeUsuarios; 

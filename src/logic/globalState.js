@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 
 // global theme 
 
@@ -42,15 +41,6 @@ export const GlobalState = props => {
         "Administrador"
     ]
  
-    const { user, isLoading, isAuthenticated } = useAuth0()
-
-    if(!isLoading)
-    {
-        if(isAuthenticated)
-        {
-            
-        }
-    }
     // cambio del color de acentuacion
 
     

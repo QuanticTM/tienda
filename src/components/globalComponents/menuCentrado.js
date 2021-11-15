@@ -25,15 +25,18 @@ const MenuCentrado = props => {
         borderColor: chosenColor[2]
     };
 
+    const opciones = props.items.map((item, i) => {
+        return <OptionStyledC key={i} value={item}>{item}</OptionStyledC>
+    });
+
     return (
         <div className="menu-centrado" style={st} >
             <h2> {props.children}</h2>
             <form onSubmit={props.method} >
-                <SelectionC>
-                    <OptionStyledC>Administrador </OptionStyledC>
-                    <OptionStyledC>Vendedor </OptionStyledC>
+                <SelectionC value={props.value} method={props.setter} >
+                    {opciones}
                 </SelectionC>
-            <BotonDual exitMethod={props.exitMethod}>Cambiar Puesto</BotonDual>        
+            <BotonDual exitMethod={props.exitMethod}>{props.methodName}</BotonDual>        
             </form>
         </div>
     )

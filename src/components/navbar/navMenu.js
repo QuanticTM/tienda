@@ -67,7 +67,7 @@ const OptionsNav = () => {
 
 const NavMenu = props => {
 
-    const {tema, chosenColor} = useContext(GlobalContext);
+    const {chosenColor} = useContext(GlobalContext);
     const st = {
         backgroundColor: chosenColor[1] ,
         color: "#fff",
